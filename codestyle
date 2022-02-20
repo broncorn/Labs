@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[T2A]{fontenc}
+\usepackage[T1]{fontenc}
+
+\title{Code Style}
+\author{Зайцев Артём Игоревич}
+\date{07.02.22}
+
+\begin{document}
+\maketitle
+
+\section{Введение}
+В данном документе описан мой стиль написания кода.
+
+\section{Основная часть}
+\lstset{language=С++}
+\textbf{\emph{Используемые языки программирования}}
+\begin{itemize}
+    \item C/C++;
+\end{itemize}
+\textbf{\emph{Пробелы и отступы}}
+\\Операторы и операнды разделяются пробелом:
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+int x = (a + b) * c / d;
+\\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{\emph{Оформление циклов и операторов управления}}
+\\При использованиии циклов и операторов управления всегда используются фигурные скобки, отступы и переносы на новую строку, там где это нужно:
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+if (temp == 10) \{\\
+    return temp;
+\}\\ else \{\\
+    for (i = 0; i < 10; i++) \{\\
+        std::cout << "error" << std::endl;
+   \}\\
+\}\\
+\\
+\hline
+\end{tabular}
+\end{table}
+\\\\
+\\\\
+Цикл for используется, когда известно количество повторений, а цикл while, когда
+количество повторений неизвестно:
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+for (i = 0; i < 10; i++) \{\\
+    ...\\
+\}\\
+
+while (i < 10) \{\\
+    ...\\
+\}\\
+\\
+\hline
+\end{tabular}
+\end{table}
+\textbf{\emph{\\Разделение функций и блоков кода}}
+
+
+\\Функции и различные по смыслу блоки кода разделяются пустой линией:
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+int smthFunc1 () \{\\
+\}\\
+\\
+int smthFunc2 () \{\\
+\}\\
+\\
+\hline
+\end{tabular}
+\end{table}
+\textbf{\emph{Названия функций и переменных}}
+\\Функции и переменные должны иметь описательные и логичные названия, не приветствуются однобуквенные названия (если это не итераторы).
+\textit{\\Названия переменных:}
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+//counter variable:\\
+int m = 0; // wrong name\\
+int counter = 0; // correct name\\
+\\
+\hline
+\end{tabular}
+\end{table}
+\\Названия методов и функций должны быть записаны в смешанном регистре и начинаться с нижнего.
+\textit{\\Названия методов и функций}
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+getName();\\
+addFirst();\\
+\\
+\hline
+\end{tabular}
+\end{table}
+\\\\
+\\\\
+\\
+\\Именованные константы должны быть записаны в верхнем регистре с нижним подчёркиванием в качестве разделителя.
+\textit{\\Названия констант}
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+MAX_ITERATIONS, COLOR_RED
+\\
+\hline
+\end{tabular}
+\end{table}
+\\\
+\textbf{\emph{Оформление классов}}
+\\Класс следует объявлять в заголовочном файле и определять (реализовывать) в файле исходного кода, имена файлов совпадают с именем класса:
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+MyClass.h, MyClass.cpp
+\\
+\hline
+\end{tabular}
+\end{table}
+\\Заголовочные файлы объявляют интерфейс, файлы исходного кода его реализовывают.
+\\Не следует объявлять переменные класса как public. Вместо этого нужно использовать переменные с модификатором private и соответствующие функции доступа:
+\begin{table}[h!]
+\begin{tabular}{ | l | }
+\hline
+\\
+class MyClass
+\{\\
+public:
+  int getValue () \{\\
+    return value_;\\
+  \}\\
+  ...\\
+\\
+private:\\
+  int value_;\\
+\}\\
+\\
+\hline
+\end{tabular}
+\end{table}
+\\\\
+\\\\
+\section{Вывод}
+В ходе работы я описал свой стиль создания кода, написал отчёт в редакторе LaTeX.
+\begin{thebibliography}{3}
+ \bibitem{1} Осваиваем LaTeX за 30 минут [Электронный ресурс] URL: https://habr.com/ru/company/ruvds/blog/574352/ (дата обращения 06.02.2022)
+ \bibitem{2} C++ Programming Style Guidelines [Электронный ресурс] URL: https://geosoft.no/development/cppstyle.html (дата обращения 06.02.2022)
+ \bibitem{3} Оформление исходного кода в документах LaTeX [Электронный ресурс] URL: http://dkhramov.dp.ua/Comp.CyrillicInListingsTex#.Ygk7599ByUk (дата обращения 06.02.2022)
+\end{thebibliography}
+\end{document}
